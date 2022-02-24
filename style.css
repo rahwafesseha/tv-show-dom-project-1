@@ -1,3 +1,41 @@
 #root {
-  color: red;
+  position: relative;
+  color: black;
+  padding:10px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  grid-auto-rows: minmax(100px, auto);
+ background-color:rgb(109, 133, 165)
 }
+.mainDiv{
+background-color: white;
+border: 1px solid rgb(184, 180, 180);
+border-radius: 15px;
+padding: 10px; 
+}
+
+.mainDiv p{
+text-align: center;
+margin-left: 60px;
+margin-right: 90px;
+padding-bottom: 5px;
+}
+
+#title{
+border: 1px solid black;
+border-radius: 8px;
+padding:5px 0px;
+font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+color:rgb(228, 19, 158);
+font-weight:200px;
+text-align: center;
+background-image:linear-gradient(rgb(184, 190, 126), white) ;
+
+}
+.imageEpisode{
+display: block;
+margin-left: auto;
+margin-right: auto;
+}
+
