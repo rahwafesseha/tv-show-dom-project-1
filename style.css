@@ -38,4 +38,17 @@ display: block;
 margin-left: auto;
 margin-right: auto;
 }
-
+.display{
+  display:inline-block;
+  margin-left:10px;
+}
+#selectEpisode{
+  padding:5px 0px;
+  font-size: 15px;
+  color:rgb(211, 77, 204);
+  font-weight: bold;
+}
+#searchInput{
+  padding:5px 0px;
+  font-size: 15px; 
+}
