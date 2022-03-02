@@ -1,5 +1,6 @@
 //You can edit ALL of the code here
 //edit 
+let allEpisodes;
 const filterEpisodesById = (id)=>{
 return allEpisodes.filter((episode)=>
 episode.id.toString() === id
@@ -12,10 +13,21 @@ const searchFilteredEpisodes = (input) => {
     epi.summary.toLowerCase().includes(input.toLowerCase())
 );
 }
-
-const allEpisodes = getAllEpisodes();
-function setup() {
+function getAllEpisodesLive(){
+  fetch("https://api.tvmaze.com/shows/82/episodes")
+  .then(Response=>Response.json())
+  .then(data => {
+    allEpisodes = data
+   selectedEpisodesOption();
+  makePageForEpisodes(allEpisodes);
+});
  
+}
+
+// const allEpisodes = getAllEpisodes();
+
+function setup() {
+  getAllEpisodesLive();
 const input = document.getElementById("searchInput");
 input.addEventListener("keyup", () => {
   
@@ -24,7 +36,7 @@ input.addEventListener("keyup", () => {
 });
 
   
-  makePageForEpisodes(allEpisodes);
+  
 }
 
 function formatNumber(number) {
@@ -34,6 +46,8 @@ function formatNumber(number) {
     return `${number}`;
   }
 }
+
+function selectedEpisodesOption(){
  const selectEpisode = document.getElementById("selectEpisode");
 
  allEpisodes.forEach((episode,index) =>{
@@ -46,12 +60,14 @@ selectEpisode.addEventListener("change",(e)=>{
 let selectedEpisodes = filterEpisodesById(e.target.value)
 makePageForEpisodes(selectedEpisodes);
 })
+}
 
 function displayNumber(allEpisodes, filteredEpisodes) {
   let currentEpisodes = document.getElementById("displayEpisodeNumber");
   currentEpisodes.innerHTML = `Displaying ${filteredEpisodes}/${allEpisodes}`;
 
 }
+
 function makePageForEpisodes(episodeList) {
   const rootElem = document.getElementById("root");
   rootElem.innerHTML = "";
