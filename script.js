@@ -1,5 +1,5 @@
 //You can edit ALL of the code here
-//edit 
+
 let allEpisodes;
 const filterEpisodesById = (id)=>{
 return allEpisodes.filter((episode)=>
@@ -13,29 +13,31 @@ const searchFilteredEpisodes = (input) => {
     epi.summary.toLowerCase().includes(input.toLowerCase())
 );
 }
-function getAllEpisodesLive(){
-  fetch("https://api.tvmaze.com/shows/82/episodes")
-  .then(Response=>Response.json())
-  .then(data => {
-    allEpisodes = data
-   selectedEpisodesOption();
-  makePageForEpisodes(allEpisodes);
-});
+function getAllEpisodesLive(showId){
+  fetch(`https://api.tvmaze.com/shows/${showId}/episodes`)
+    .then((Response) => Response.json())
+    .then((data) => {
+      allEpisodes = data;
+      makePageForEpisodes(allEpisodes);
+    
+      selectedEpisodesOption();
+    });
  
 }
 
 // const allEpisodes = getAllEpisodes();
 
 function setup() {
-  getAllEpisodesLive();
+  getAllEpisodesLive(82);
 const input = document.getElementById("searchInput");
 input.addEventListener("keyup", () => {
-  
+   
   makePageForEpisodes(searchFilteredEpisodes(input.value));
 
 });
+ let allShows = getAllShows();
+ selectShows(allShows);
 
-  
   
 }
 
@@ -53,7 +55,7 @@ function selectedEpisodesOption(){
  allEpisodes.forEach((episode,index) =>{
     const selectOptions = document.createElement("option");
     selectOptions.value = episode.id;
-    selectOptions.innerHTML = `S${formatNumber(episode.season)}E${formatNumber(episode.number)} - ${episode.name}`;
+    selectOptions.innerHTML = `S${formatNumber(episode.season)}E${formatNumber(episode.number)} - ${episode.name} `;
     selectEpisode.add(selectOptions);
  })
 selectEpisode.addEventListener("change",(e)=>{
@@ -100,3 +102,18 @@ function makePageForEpisodes(episodeList) {
 
 
 window.onload = setup;
+
+//selecting shows
+function selectShows(allShows){
+  let select = document.getElementById("select-shows");
+  allShows.forEach((show)=>{
+    let option = document.createElement("option");
+    option.value = show.id;
+    option.innerText = show.name;
+    select.appendChild(option);
+  })
+  
+   
+   
+    
+}

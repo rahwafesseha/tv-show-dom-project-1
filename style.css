@@ -1,18 +1,34 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,#selectEpisode,
+#searchInput{
+  /* background-color:#EFFFFD; */
+  background-color:#040303;
+}
+
 #root {
   position: relative;
   color: black;
   padding:10px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
-  grid-auto-rows: minmax(100px, auto);
- background-color:rgb(109, 133, 165)
+  gap: 25px;
+  grid-template-rows: 1fr;
+ 
+  
 }
 .mainDiv{
 background-color: white;
 border: 1px solid rgb(184, 180, 180);
 border-radius: 15px;
 padding: 10px; 
+border-style: none;
+box-shadow: 0 20px 20px -15px rgba(252, 251, 253, 0.906)
+
 }
 
 .mainDiv p{
@@ -20,17 +36,21 @@ text-align: center;
 margin-left: 60px;
 margin-right: 90px;
 padding-bottom: 5px;
+font-size: large;
+
 }
 
 #title{
 border: 1px solid black;
 border-radius: 8px;
-padding:5px 0px;
+padding:8px 0px;
+margin-top: 0;
 font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-color:rgb(228, 19, 158);
+color:#04293A;
 font-weight:200px;
 text-align: center;
-background-image:linear-gradient(rgb(184, 190, 126), white) ;
+background-image:linear-gradient(#92A9BD, white) ;
+border-style: none
 
 }
 .imageEpisode{
@@ -41,14 +61,20 @@ margin-right: auto;
 .display{
   display:inline-block;
   margin-left:10px;
+  color:white;
 }
-#selectEpisode{
-  padding:5px 0px;
-  font-size: 15px;
-  color:rgb(211, 77, 204);
-  font-weight: bold;
-}
+#selectEpisode,
 #searchInput{
-  padding:5px 0px;
-  font-size: 15px; 
+  /* padding:10px 0px; */
+  margin: 20px;
+  font-size: 18px;
+  color:#04293A;
+  font-weight: bold;
+  border-style: none;
+  color:white;
+  /* box-shadow:3px 5px #7897AB; */
+  margin-bottom:20px ;
 }
+
+
+  
