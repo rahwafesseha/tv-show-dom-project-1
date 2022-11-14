@@ -9,19 +9,27 @@
   </head>
 
   <body>
-    <select name="episodes" id="selectEpisode"><select>
-    <input type = "text" id = "searchInput"/><span class="display"><p id ="displayEpisodeNumber"></p></span>
+     
+      <select name="episodes" id="selectEpisode" aria-placeholder="Select episodes"><select>
+     
+      
+        <input type = "text" id = "searchInput" placeholder = " Search ..."/><span class="display"><p id ="displayEpisodeNumber"></p></span>
+     
+      <select name="showId" id="select-shows" class= "show-select"></select>
     <div id="root">
       
     </div>
     <footer><span>The source for this content is from:</span>
       <a href= "https://www.tvmaze.com/api#licensing">TVMaze.com</a>
     </footer>
-
+     <!-- Loads a provided function called getAllShows() -->
+    <script type = "text/javascript" src="shows.js"></script>
     <!-- Loads a provided function called getAllEpisodes() which returns all episodes -->
-    <script src="episodes.js"></script>
+    <script src = "episodes.js"></script>
 
     <!-- Loads YOUR javascript code -->
-    <script src="script.js"></script>
+    <script src = "script.js"></script>
+   
+   
   </body>
 </html>
